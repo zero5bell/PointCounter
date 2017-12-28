@@ -1,26 +1,21 @@
 #import library - MUST use cv2 if using opencv_traincascade
 import cv2
 
-
 # load detection file (various files for different views and uses)
-faceCascade = cv2.CascadeClassifier(r'C:\opencv\build\share\OpenCV\haarcascades\haarcascade_eye.xml')
 #faceCascade = cv2.CascadeClassifier(r'C:\opencv\build\share\OpenCV\haarcascades\haarcascade_frontalface_alt.xml')
-#faceCascade = cv2.CascadeClassifier(r'C:\opencv\build\share\OpenCV\haarcascades\haarcascade_upperbody.xml')
-
+faceCascade = cv2.CascadeClassifier(r'C:\opencv\build\share\OpenCV\haarcascades\haarcascade_eye.xml')
 
 image = cv2.imread(r'..\image\9.jpg')
-#image = cv2.imread(r'..\image\1.jpg')
-#image = cv2.imread(r'..\image\2.jpg')
-#image = cv2.imread(r'..\image\3.jpg')
 
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # Detect faces in the image
 faces = faceCascade.detectMultiScale(
     gray,
-    scaleFactor=1.1,
+    scaleFactor=1.05,
     minNeighbors=5,
-    minSize=(30, 30),
+    #minSize=(30, 30),
+    minSize=(5, 5),
     flags = cv2.cv.CV_HAAR_SCALE_IMAGE
 )
 
