@@ -5,17 +5,17 @@ import cv2
 #faceCascade = cv2.CascadeClassifier(r'C:\opencv\build\share\OpenCV\haarcascades\haarcascade_frontalface_alt.xml')
 faceCascade = cv2.CascadeClassifier(r'C:\opencv\build\share\OpenCV\haarcascades\haarcascade_eye.xml')
 
-image = cv2.imread(r'..\image\9.jpg')
+image = cv2.imread(r'..\image\91.jpg')
 
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # Detect faces in the image
 faces = faceCascade.detectMultiScale(
     gray,
-    scaleFactor=1.05,
+    scaleFactor=1.001,
     minNeighbors=5,
     #minSize=(30, 30),
-    minSize=(5, 5),
+    minSize=(30, 30),
     flags = cv2.cv.CV_HAAR_SCALE_IMAGE
 )
 
